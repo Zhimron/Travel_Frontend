@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../public/fonts/Montserrat-Light.ttf");
+}
+h1 {
+  font-family: Montserrat;
+}
