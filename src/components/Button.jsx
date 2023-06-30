@@ -9,8 +9,9 @@ function Buttons(props) {
       style={{
         textTransform: "none",
         backgroundColor: bgcolor,
+        fontFamily: "Montserrat",
       }}
-      className="w-full h-full"
+      className="w-full h-full "
     >
       {label}
     </Button>

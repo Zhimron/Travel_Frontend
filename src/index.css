@@ -4,8 +4,13 @@
 
 @font-face {
   font-family: Montserrat;
-  src: url("../public/fonts/Montserrat-Light.ttf");
+  src: url("../fonts/Montserrat-Light.ttf");
 }
-h1 {
+@font-face {
+  font-family: font2;
+  src: url("../fonts/YsabeauOffice-Medium.ttf");
+}
+h1,a{
+  font-weight: 10;
   font-family: Montserrat;
 }

@@ -9,7 +9,7 @@ function Inputs(props) {
       label={label}
       type={type}
       variant="standard"
-      className="w-full h-full"
+      className="w-full h-full font-semibold"
     />
   );
 }
