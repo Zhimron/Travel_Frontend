@@ -22,7 +22,9 @@ const Loginreg = () => {
     <>
       <div className="flex justify-center items-center">
         <div className="bg-blue-200 w-[25rem] h-[35rem] p-14 flex justify-center flex-col items-center">
-          <h1 className="font-extrabold text-[3em] font-[font2]">Travel More</h1>
+          <h1 className="font-extrabold text-[3em] font-[font2]">
+            Travel More
+          </h1>
           <h1 className="font-bold text-lg mt-1 ">
             Hi! Let's track the destinations you've been to.
           </h1>
@@ -30,23 +32,22 @@ const Loginreg = () => {
           <div className="w-[20rem] mt-4">
             <Lottie animationData={traveller} />
           </div>
-
         </div>
         <div className="bg-white w-[30rem] h-[35rem] flex flex-col border ">
           {isLoading ? (
             <div className="flex justify-center items-center h-full">
-              <Lottie animationData={loading}/>
+              <Lottie animationData={loading} />
             </div>
           ) : (
-          <>
-          {isLoginVisible ? <Login /> : <Register />}
-          <div className="mt-3">
-            <p onClick={handleSwitch}>
-              {isLoginVisible ? "Register?" : "Login?"}
-            </p>
-          </div>
-          </>
-           )}
+            <>
+              {isLoginVisible ? <Login /> : <Register />}
+              <div className="mt-3">
+                <p onClick={handleSwitch} className="font-[Montserrat]">
+                  {isLoginVisible ? "Register?" : "Login?"}
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
