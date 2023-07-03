@@ -20,7 +20,7 @@ const Loginreg = () => {
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className="bg-[#95BDFF] w-[25rem] h-[35rem] p-14 flex justify-center flex-col items-center">
+        <div className="bg-[#9DC08B] w-[25rem] h-[35rem] p-14 flex justify-center flex-col items-center">
           <h1 className="font-extrabold text-[3em] font-[font2] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]">
             Travel More
           </h1>

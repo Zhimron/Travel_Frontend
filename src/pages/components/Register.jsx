@@ -3,6 +3,7 @@ import Inputs from "../../components/Input";
 import Buttons from "../../components/Button";
 import Checkboxs from "../../components/Checkbox";
 import { motion } from "framer-motion";
+
 const Register = () => {
   const [isShowPassword, SetIsShowPassword] = useState(false);
   const handleChange = (event) => {
