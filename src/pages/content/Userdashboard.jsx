@@ -2,7 +2,9 @@ import { useState } from "react";
 import Mountain from "../../assets/mountain.jpg";
 import { motion } from "framer-motion";
 import Buttons from "../../components/Button";
+import { useNavigate } from "react-router";
 const Dashboard = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="">
@@ -45,6 +47,7 @@ const Dashboard = () => {
             repeat: Infinity,
             repeatType: "reverse",
           }}
+          onClick={() => navigate("/LoginRegister")}
         >
           <Buttons label="Lets Start" bgcolor="#41644A" />
         </motion.div>

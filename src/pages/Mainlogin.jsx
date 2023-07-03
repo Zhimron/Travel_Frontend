@@ -2,13 +2,14 @@ import { useState } from "react";
 import Lottie from "lottie-react";
 import traveller from "../assets/travellerAnimation.json";
 import loading from "../assets/loading.json";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./userLog/Login";
+import Register from "./userLog/Register";
+import { useNavigate } from "react-router";
 
 const Loginreg = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleSwitch = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -16,7 +17,7 @@ const Loginreg = () => {
       setIsLoading(false);
     }, 1500);
   };
-
+  
   return (
     <>
       <div className="flex justify-center items-center">
