@@ -6,23 +6,22 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 const Loginreg = () => {
-
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSwitch = () => {
     setIsLoading(true);
-     setTimeout(() => {
+    setTimeout(() => {
       setIsLoginVisible(!isLoginVisible);
       setIsLoading(false);
     }, 1500);
   };
- 
+
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className="bg-blue-200 w-[25rem] h-[35rem] p-14 flex justify-center flex-col items-center">
-          <h1 className="font-extrabold text-[3em] font-[font2]">
+        <div className="bg-[#95BDFF] w-[25rem] h-[35rem] p-14 flex justify-center flex-col items-center">
+          <h1 className="font-extrabold text-[3em] font-[font2] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]">
             Travel More
           </h1>
           <h1 className="font-bold text-lg mt-1 ">
@@ -42,7 +41,10 @@ const Loginreg = () => {
             <>
               {isLoginVisible ? <Login /> : <Register />}
               <div className="mt-3">
-                <p onClick={handleSwitch} className="font-[Montserrat]">
+                <p
+                  onClick={handleSwitch}
+                  className="font-[Montserrat] text-[#41644A]"
+                >
                   {isLoginVisible ? "Register?" : "Login?"}
                 </p>
               </div>

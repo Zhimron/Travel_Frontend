@@ -27,7 +27,7 @@ const Navigation = () => {
               whileHover={{ scale: 1.2 }}
             >
               <Buttons
-                label="Travel"
+                label="About"
                 bgcolor="transparent"
                 textcolor="#41644A"
                 fontsize="18px"
@@ -38,7 +38,7 @@ const Navigation = () => {
               whileHover={{ scale: 1.2 }}
             >
               <Buttons
-                label="Account"
+                label="Contact"
                 bgcolor="transparent"
                 textcolor="#41644A"
                 fontsize="18px"

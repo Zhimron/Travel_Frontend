@@ -32,7 +32,7 @@ const Dashboard = () => {
           }}
         >
           To{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]">
+          <span className="text-transparent font-[font2] bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]">
             Quest,
           </span>{" "}
           a notes of your every Destination
