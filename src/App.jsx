@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import  Loginreg  from "./pages/Mainlogin";
+import Loginreg from "./pages/Mainlogin";
 import "./App.css";
 import Mainpage from "./pages/Mainpage";
 import NotFound from "./pages/content/Page404";
+import Home from "./pages/userpage/UserHome";
 
 function App() {
-  
-
   return (
     <Router>
       <Routes>
@@ -16,6 +15,7 @@ function App() {
         <Route path="/Home" element={<Mainpage />} />
         <Route path="/About" element={<Mainpage />} />
         <Route path="/Contact" element={<Mainpage />} />
+        <Route path="/User" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
