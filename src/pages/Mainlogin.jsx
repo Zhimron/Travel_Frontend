@@ -10,6 +10,7 @@ const Loginreg = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleSwitch = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -17,7 +18,7 @@ const Loginreg = () => {
       setIsLoading(false);
     }, 1500);
   };
-  
+
   return (
     <>
       <div className="flex justify-center items-center">

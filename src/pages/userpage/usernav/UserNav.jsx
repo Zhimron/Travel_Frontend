@@ -11,12 +11,13 @@ const Usernav = () => {
           <div>
             <h1 className=" font-[Font2] text-[35px] font-bold">QUEST</h1>
           </div>
-          <div className="flex gap-7 p-1 mt-4">
+          <div className="flex gap-7 py-3">
             {Usernavlink.map((link) => (
               <motion.div
                 className="h-[30px] w-[100px] rounded-full overflow-hidden hover:bg-slate-950 hover:bg-opacity-10"
                 whileHover={{ scale: 1.2 }}
-                onClick={() => navigate(link.id)}
+                onClick={() => navigate(link.links)}
+                key={link.id}
               >
                 <Buttons
                   className=""

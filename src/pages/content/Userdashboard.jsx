@@ -14,7 +14,8 @@ const Dashboard = () => {
           className="fixed top-0 left-0 h-screen w-full object-cover"
         />
       </div>
-      <div className="relative mt-10 w-screen text-white flex flex-col items-center">
+
+      <div className="z-0 mt-10 w-screen flex flex-col items-center">
         <motion.h1
           className=" font-semibold font-[font2] text-[15rem] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]"
           initial={{ opacity: 0 }}
