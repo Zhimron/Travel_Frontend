@@ -7,6 +7,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   return (
     <>
+      <div></div>
       <div className="">
         <img
           src={Mountain}

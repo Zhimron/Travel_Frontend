@@ -25,9 +25,18 @@ const Boards = () => {
   return (
     <>
       <div className=" bg-red-500 ">
-        <div className="bg-green-200">
-          {data && data.map((item) => <p key={item._id}>{item.place}</p>)}
-        </div>
+        {data &&
+          data.map((item) => (
+            <div
+              key={item._id}
+              className="bg-green-200 w-56 p-5 mt-1 flex flex-col items-start"
+            >
+              <p>PLACE:{item.place}</p>
+              <p>From: {item.from}</p>
+              <p>To: {item.to}</p>
+              <p>Experience: {item.experience}</p>
+            </div>
+          ))}
       </div>
     </>
   );
