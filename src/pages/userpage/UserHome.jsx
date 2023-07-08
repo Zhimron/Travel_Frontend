@@ -1,6 +1,6 @@
 import React from "react";
 import Usernav from "./usernav/UserNav";
-import Boards from "./contents/Userboard";
+import Useraddtravel from "./contents/Useraddtravel";
 const Home = () => {
   return (
     <>
@@ -8,7 +8,7 @@ const Home = () => {
         <Usernav />
       </div>
       <div>
-        <Boards />
+       <Useraddtravel/>
       </div>
     </>
   );
