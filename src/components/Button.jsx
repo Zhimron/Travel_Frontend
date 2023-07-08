@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 
 function Buttons(props) {
-  const { label, bgcolor, textcolor, fontsize } = props;
+  const { label, bgcolor, textcolor, fontsize ,type} = props;
   return (
     <Button
       variant="contained"
@@ -12,8 +12,10 @@ function Buttons(props) {
         fontFamily: "Montserrat",
         color: textcolor,
         fontSize: fontsize,
+        
       }}
       className="w-full h-full "
+      type={type}
     >
       {label}
     </Button>
