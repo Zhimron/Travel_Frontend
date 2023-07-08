@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Buttons from "../../../components/Button";
 import deleteTravel from "../../../api/DeleteTravel";
 import Traveldetails from "../components/Traveldetails"
 
@@ -32,7 +31,7 @@ const Boards = () => {
         console.log("Error:", error.message);
       }
     };
-    const fetchInterval = setInterval(fetchData, 5000); // Fetch data every 5 seconds
+    const fetchInterval = setInterval(fetchData, 1000); // Fetch data every 1 seconds
     setIntervalId(fetchInterval);
 
     return () => {

@@ -14,11 +14,17 @@ const Home = () => {
       <div className="fixed top-0 left-0 shadow-md  z-10 bg-white w-screen">
         <Usernav />
       </div>
-      <div className="flex  mt-[80px]">
+      <div className="flex justify-end mt-[70px] ">
+        <Switches
+          onClick={handleSwitch}
+          label={isAddVisible ? "Close" : "Add"}
+          textcolor="#808080"
+        />
+      </div>
+      <div className="flex mt-[20px]">
         <Boards />
 
-        {isAddVisible ? <Useraddtravel /> : ""}
-        <Switches onClick={handleSwitch} label="Add" />
+        <div className="flex">{isAddVisible ? <Useraddtravel /> : ""}</div>
       </div>
     </>
   );
