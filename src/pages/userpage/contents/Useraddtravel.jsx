@@ -1,33 +1,45 @@
-import  { useState } from "react";
+import { useState } from "react";
 import Inputs from "../../../components/Input";
 import Buttons from "../../../components/Button";
+import useTravelSubmit from "../../../api/UserTravelsubmit";
+
 
 const Useraddtravel = () => {
-  const [place, setPlace] = useState('');
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
-  const [experience, setExperience] = useState('');
- 
+  const [place, setPlace] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [experience, setExperience] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+  const submitTravel = useTravelSubmit();
+  const validateForm = () => {
+    const errors = {};
+
+    if (!place.trim()) {
+      errors.place = "Place is required";
+    }
+
+    if (!from.trim()) {
+      errors.from = "From is required";
+    }
+
+    if (!to.trim()) {
+      errors.to = "To is required";
+    }
+
+    if (!experience.trim()) {
+      errors.experience = "Experience is required";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0; // Return true if there are no errors
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const travel = { place, from, to, experience };
-    try {
-      const response = await fetch("http://localhost:4000/api/travel/", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json" 
-        },
-        body: JSON.stringify(travel),
-      });
-
-      if (response.ok) {
-        console.log("POST request successful",travel);
-        
-      } else {
-        console.log("POST request failed");
-      }
-    } catch (error) {
-      console.error("ERROR", error);
+    if (validateForm()) {
+      const travel = { place, from, to, experience };
+      submitTravel(travel)
     }
   };
 
@@ -43,9 +55,13 @@ const Useraddtravel = () => {
                 value={place}
                 label="Place"
                 type="text"
-                required
+                required // Add the required attribute
                 onChange={(e) => setPlace(e.target.value)}
+                error={formErrors.place}
               />
+              {formErrors.place && (
+                <span className="text-red-600">{formErrors.place}</span>
+              )}
             </div>
             <div className="mt-5">
               <Inputs
@@ -55,7 +71,11 @@ const Useraddtravel = () => {
                 type="text"
                 required
                 onChange={(e) => setFrom(e.target.value)}
+                error={formErrors.from}
               />
+              {formErrors.from && (
+                <span className="text-red-600">{formErrors.from}</span>
+              )}
             </div>
             <div className="mt-5">
               <Inputs
@@ -63,8 +83,13 @@ const Useraddtravel = () => {
                 value={to}
                 label="To"
                 type="text"
+                required
                 onChange={(e) => setTo(e.target.value)}
+                error={formErrors.to}
               />
+              {formErrors.to && (
+                <span className="text-red-600">{formErrors.to}</span>
+              )}
             </div>
             <div className="mt-5">
               <Inputs
@@ -73,11 +98,14 @@ const Useraddtravel = () => {
                 label="Experience"
                 type="text"
                 rows="5"
-                required
+                required // Add the required attribute
                 onChange={(e) => setExperience(e.target.value)}
+                error={formErrors.experience}
               />
+              {formErrors.experience && (
+                <span className="text-red-600">{formErrors.experience}</span>
+              )}
             </div>
-
             <div className="mt-5">
               <Buttons label="Log" bgcolor="#41644A" type="submit" />
             </div>

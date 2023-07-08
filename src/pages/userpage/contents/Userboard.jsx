@@ -1,8 +1,21 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Buttons from "../../../components/Button";
+import deleteTravel from "../../../api/DeleteTravel";
+import Traveldetails from "../components/Traveldetails"
 
 const Boards = () => {
   const [data, setData] = useState(null);
+  const [intervalId, setIntervalId] = useState(null);
+  const [deleted, setDeleted] = useState(false);
+
+  const handleDelete = async (e) => {
+    try {
+      await deleteTravel(e)
+      setDeleted(true);
+    } catch (error) {
+      console.error("Failed to delete", error);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,30 +32,25 @@ const Boards = () => {
         console.log("Error:", error.message);
       }
     };
+    const fetchInterval = setInterval(fetchData, 5000); // Fetch data every 5 seconds
+    setIntervalId(fetchInterval);
 
-    fetchData();
+    return () => {
+      clearInterval(fetchInterval); // Clear the interval when the component unmounts
+    };
   }, []);
 
   return (
     <>
       <div className="flex ">
         <div className="ml-[115px]">
-          <h1 className="font-[font2] text-[40px] flex">Your Travel Experience</h1>
-          <div className="flex justify-start ">
+          <h1 className="font-[font2] text-[40px] flex">
+            Your Travel Experience
+          </h1>
+          <div className="grid gap-4 grid-cols-3 grid-rows-3 ">
             {data &&
               data.map((item) => (
-                <div key={item._id} className="flex m-3 bg-slate-400">
-                  <div className="p-5 inline-block text-left">
-                    <p className="font-[font2] font-bold text-lg">
-                      {item.place}
-                    </p>
-                    <p className="mt-2">
-                      <span className="font-[font2] font-bold text-lg">From:</span> {item.from} <span className="font-[font2] font-bold text-lg">To:</span> {item.to}
-                    </p>
-                    <span className="font-[font2] font-bold text-lg mt-4">Experience:</span>
-                    <p className="mt-2">{item.experience}</p>
-                  </div>
-                </div>
+               <Traveldetails key={item._id} item={item}/>
               ))}
           </div>
         </div>
@@ -50,4 +58,5 @@ const Boards = () => {
     </>
   );
 };
+
 export default Boards;
