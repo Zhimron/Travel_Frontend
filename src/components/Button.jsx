@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 
 function Buttons(props) {
-  const { label, bgcolor, textcolor, fontsize ,type} = props;
+  const { label, bgcolor, textcolor, fontsize ,type , onClick} = props;
   return (
     <Button
       variant="contained"
@@ -16,6 +16,7 @@ function Buttons(props) {
       }}
       className="w-full h-full "
       type={type}
+      onClick={onClick}
     >
       {label}
     </Button>

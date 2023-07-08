@@ -43,15 +43,13 @@ const Boards = () => {
   return (
     <>
       <div className="flex ">
-        <div className="ml-[115px]">
+        <div className="ml-[50px]">
           <h1 className="font-[font2] text-[40px] flex">
             Your Travel Experience
           </h1>
-          <div className="grid gap-4 grid-cols-3 grid-rows-3 ">
+          <div className="grid gap-5 grid-row grid-rows-3 ">
             {data &&
-              data.map((item) => (
-               <Traveldetails key={item._id} item={item}/>
-              ))}
+              data.map((item) => <Traveldetails key={item._id} item={item} />)}
           </div>
         </div>
       </div>

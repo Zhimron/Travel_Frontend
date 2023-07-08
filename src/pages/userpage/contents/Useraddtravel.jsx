@@ -2,6 +2,7 @@ import { useState } from "react";
 import Inputs from "../../../components/Input";
 import Buttons from "../../../components/Button";
 import useTravelSubmit from "../../../api/UserTravelsubmit";
+import InputsTravel from "../../../components/InputsTravel";
 
 
 const Useraddtravel = () => {
@@ -44,13 +45,13 @@ const Useraddtravel = () => {
   };
 
   return (
-    <div className="flex flex-col ml-[110px]">
+    <div className="flex flex-col ">
       <div className="w-[300px]">
         <h1 className="text-2xl font-[Montserrat] mb-5">Input Your Travel</h1>
-        <div className="bg-red-50 rounded-sm p-5">
+        <div className="rounded-sm p-5">
           <form onSubmit={handleSubmit}>
             <div>
-              <Inputs
+              <InputsTravel
                 id="place"
                 value={place}
                 label="Place"
@@ -64,7 +65,7 @@ const Useraddtravel = () => {
               )}
             </div>
             <div className="mt-5">
-              <Inputs
+              <InputsTravel
                 id="from"
                 value={from}
                 label="From"
@@ -78,7 +79,7 @@ const Useraddtravel = () => {
               )}
             </div>
             <div className="mt-5">
-              <Inputs
+              <InputsTravel
                 id="to"
                 value={to}
                 label="To"
@@ -92,12 +93,12 @@ const Useraddtravel = () => {
               )}
             </div>
             <div className="mt-5">
-              <Inputs
+              <InputsTravel
                 id="experience"
                 value={experience}
                 label="Experience"
                 type="text"
-                rows="5"
+                maxRows="5"
                 required // Add the required attribute
                 onChange={(e) => setExperience(e.target.value)}
                 error={formErrors.experience}

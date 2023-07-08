@@ -6,10 +6,10 @@ import { Usernavlink } from "./links/UserNavLink";
 const Usernav = () => {
   return (
     <>
-      <div className="fixed flex justify-center w-full h-[80px] p-4 top-0 left-0  text-[#41644A] ">
-        <div className="flex justify-between w-[61.5rem]">
+      <div className=" flex justify-center w-full h-[80px] p-4  text-[#41644A] ">
+        <div className="flex justify-between w-full px-16">
           <div>
-            <h1 className=" font-[Font2] text-[35px] font-bold">QUEST</h1>
+            <h1 className=" font-[Font2] text-[35px] font-bold ml-10">QUEST</h1>
           </div>
           <div className="flex gap-7 py-3">
             {Usernavlink.map((link) => (
