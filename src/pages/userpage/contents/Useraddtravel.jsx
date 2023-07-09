@@ -1,17 +1,18 @@
 import { useState } from "react";
-import Inputs from "../../../components/Input";
 import Buttons from "../../../components/Button";
-import useTravelSubmit from "../../../api/UserTravelsubmit";
 import InputsTravel from "../../../components/InputsTravel";
+import { useTravelcontext } from "../../hooks/UseTravelcontext";
 
 
 const Useraddtravel = () => {
+  const {dispatch} = useTravelcontext();
   const [place, setPlace] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [experience, setExperience] = useState("");
   const [formErrors, setFormErrors] = useState({});
-  const submitTravel = useTravelSubmit();
+
+
   const validateForm = () => {
     const errors = {};
 
@@ -20,7 +21,7 @@ const Useraddtravel = () => {
     }
 
     if (!from.trim()) {
-      errors.from = "From is required";
+      errors.from = "From is required"; 
     }
 
     if (!to.trim()) {
@@ -40,7 +41,25 @@ const Useraddtravel = () => {
     e.preventDefault();
     if (validateForm()) {
       const travel = { place, from, to, experience };
-      submitTravel(travel)
+          const response = await fetch("http://localhost:4000/api/travel/", {
+            method: "POST",
+            body: JSON.stringify(travel),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const json= await response.json();
+
+          if (response.ok) {
+           dispatch({type:'CREATE_TRAVEL',payload:json});
+           setPlace("")
+           setFrom("")
+           setTo("")
+           setExperience("")
+          }
+          if (!response.ok) {
+            console.log(json.error);
+          } 
     }
   };
 
