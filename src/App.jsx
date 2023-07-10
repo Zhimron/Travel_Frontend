@@ -15,6 +15,8 @@ function App() {
         <Route path="/Home" element={<Mainpage />} />
         <Route path="/About" element={<Mainpage />} />
         <Route path="/Contact" element={<Mainpage />} />
+        <Route path="/archive" element={<Mainpage />} />
+        <Route path="/deleted" element={<Mainpage />} />
         <Route path="/User" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

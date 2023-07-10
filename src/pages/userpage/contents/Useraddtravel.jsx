@@ -3,15 +3,13 @@ import Buttons from "../../../components/Button";
 import InputsTravel from "../../../components/InputsTravel";
 import { useTravelcontext } from "../../hooks/UseTravelcontext";
 
-
 const Useraddtravel = () => {
-  const {dispatch} = useTravelcontext();
+  const { dispatch } = useTravelcontext();
   const [place, setPlace] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [experience, setExperience] = useState("");
   const [formErrors, setFormErrors] = useState({});
-
 
   const validateForm = () => {
     const errors = {};
@@ -21,7 +19,7 @@ const Useraddtravel = () => {
     }
 
     if (!from.trim()) {
-      errors.from = "From is required"; 
+      errors.from = "From is required";
     }
 
     if (!to.trim()) {
@@ -41,32 +39,32 @@ const Useraddtravel = () => {
     e.preventDefault();
     if (validateForm()) {
       const travel = { place, from, to, experience };
-          const response = await fetch("http://localhost:4000/api/travel/", {
-            method: "POST",
-            body: JSON.stringify(travel),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          const json= await response.json();
+      const response = await fetch("http://localhost:4000/api/travel/", {
+        method: "POST",
+        body: JSON.stringify(travel),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await response.json();
 
-          if (response.ok) {
-           dispatch({type:'CREATE_TRAVEL',payload:json});
-           setPlace("")
-           setFrom("")
-           setTo("")
-           setExperience("")
-          }
-          if (!response.ok) {
-            console.log(json.error);
-          } 
+      if (response.ok) {
+        dispatch({ type: "CREATE_TRAVEL", payload: json });
+        setPlace("");
+        setFrom("");
+        setTo("");
+        setExperience("");
+      }
+      if (!response.ok) {
+        console.log(json.error);
+      }
     }
   };
 
   return (
     <div className="flex flex-col ">
-      <div className="w-[300px]">
-        <h1 className="text-2xl font-[Montserrat] mb-5">Input Your Travel</h1>
+      <div className="w-[300px] mt-3">
+        <h1 className="text-2xl font-[Montserrat] mb-2">Input Your Travel</h1>
         <div className="rounded-sm p-5">
           <form onSubmit={handleSubmit}>
             <div>

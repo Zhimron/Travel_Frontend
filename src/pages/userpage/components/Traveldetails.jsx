@@ -1,21 +1,41 @@
 import { useTravelcontext } from "../../hooks/UseTravelcontext";
 
 const Traveldetails = ({ item }) => {
-  
-  const {dispatch} =useTravelcontext();
+  const { dispatch } = useTravelcontext();
 
-  const handleClick = async () => {
-    const response = await fetch("http://localhost:4000/api/travel/"+ item._id,{
-      method:'DELETE'
-    });
+  const handleClickArchive = async () => {
+    const response = await fetch(
+      "http://localhost:4000/api/travel/" + item._id,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ archive: "Not Active" }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
-    if (response.ok){
-      dispatch({type:'DELETE_TRAVEL', payload: json});
+    if (response.ok) {
+      dispatch({ type: "UPDATE_TRAVEL", payload: json });
     }
-  }
+  };
+
+  const handleClick = async () => {
+    const response = await fetch(
+      "http://localhost:4000/api/travel/" + item._id,
+      {
+        method: "DELETE",
+      }
+    );
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "DELETE_TRAVEL", payload: json });
+    }
+  };
   return (
-    <div className="flex flex-col text-left m-3 h-[300px] rounded-md px-8 py-3 overflow-hidden hover:overflow-scroll bg-[#EEEEEE]">
+    <div className="flex flex-col text-left m-3 h-[300px]  rounded-md px-8 py-3 overflow-hidden hover:overflow-scroll bg-[#EEEEEE]">
       <h1 className="font-extrabold text-[30px] capitalize">
         <span className="text-[#1F8A70]">{item.place}</span>
       </h1>
@@ -37,6 +57,9 @@ const Traveldetails = ({ item }) => {
       </h1>
       <span className="text-right" onClick={handleClick}>
         DELETE
+      </span>
+      <span className="text-right" onClick={handleClickArchive}>
+        Archive
       </span>
     </div>
   );
