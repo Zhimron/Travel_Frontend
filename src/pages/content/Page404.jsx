@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Pagenotfound from "../../assets/404page.json"
+import Pagenotfound from "../../assets/404page.json";
 import Lottie from "lottie-react";
 import shrek from "../../assets/twerk.gif";
-import  Buttons  from "../../components/Button"
+import Buttons from "../../components/Button";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 const NotFound = () => {
   const navigate = useNavigate();
-  const[ishovering,setIsHovering]=useState(false);
-  const handleMouseEnter =()=>{
-    setIsHovering(true)
-  }
+  const [ishovering, setIsHovering] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
   const handleMouseExit = () => {
     setIsHovering(false);
   };
@@ -41,7 +41,7 @@ const NotFound = () => {
           repeat: Infinity,
           repeatType: "reverse",
         }}
-        onClick={() => navigate("/Home")}
+        onClick={() => navigate("/User")}
       >
         <Buttons label="Home" bgcolor="#41644A" />
       </motion.div>

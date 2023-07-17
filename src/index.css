@@ -10,7 +10,8 @@
   font-family: font2;
   src: url("../fonts/YsabeauOffice-Medium.ttf");
 }
-h1,a{
+h1,
+a {
   font-weight: 10;
   font-family: Montserrat;
 }

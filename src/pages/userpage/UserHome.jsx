@@ -1,30 +1,45 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Usernav from "./usernav/UserNav";
-import Useraddtravel from "./contents/Useraddtravel";
-import Boards from "./contents/Userboard";
-import Buttons from "../../components/Button";
-import Switches from "../../components/Switch";
+import Archive from "./contents/Archive";
+import NavHome from "./contents/Navhome";
+import Delete from "./contents/Deletes";
+
 const Home = () => {
-  const [isAddVisible, setIsAddVisible] = useState(false);
-  const handleSwitch = () => {
-    setIsAddVisible(!isAddVisible);
+  const [showUser, setShowUser] = useState(true);
+  const [showArchive, setShowArchive] = useState(false);
+  const [showDeleted, setShowDeleted] = useState(false);
+  const [selectedLink, setSelectedLink] = useState();
+
+  const handleLinkClick = (path) => {
+    setSelectedLink(path);
   };
+
+  useEffect(() => {
+    if (selectedLink === "User") {
+      setShowUser(true);
+      setShowArchive(false);
+      setShowDeleted(false);
+    } else if (selectedLink === "archive") {
+      setShowUser(false);
+      setShowArchive(true);
+      setShowDeleted(false);
+    } else if (selectedLink === "deleted") {
+      setShowUser(false);
+      setShowArchive(false);
+      setShowDeleted(true);
+    }
+  }, [selectedLink]);
+
   return (
     <>
       <div className="fixed top-0 left-0 shadow-md  z-10 bg-white w-screen">
-        <Usernav />
+        <Usernav handleLinkClick={handleLinkClick} />
       </div>
-      <div className="flex justify-end mt-[70px] mr-5 ">
-        <Switches
-          onClick={handleSwitch}
-          label={isAddVisible ? "Close" : "Add"}
-          textcolor="#808080"
-        />
-      </div>
-      <div className="flex mt-[20px]">
-        <Boards />
-
-        <div className="flex">{isAddVisible ? <Useraddtravel /> : ""}</div>
+      <div>
+        {showUser && <NavHome />}
+        {showArchive && <Archive />}
+        {showDeleted && <Delete />}
       </div>
     </>
   );
