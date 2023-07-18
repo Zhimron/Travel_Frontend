@@ -9,17 +9,21 @@ const NavHome = () => {
   };
   return (
     <>
-      <div className="flex justify-end mt-[70px] mr-5 ">
-        <Switches
-          onClick={handleSwitch}
-          label={isAddVisible ? "Close" : "Add"}
-          textcolor="#808080"
-        />
-      </div>
-      <div className="flex mt-[20px]">
-        <Boards />
+      <div>
+        <div className="flex justify-end mt-[70px]  absolute ">
+          <Switches
+            onClick={handleSwitch}
+            label={isAddVisible ? "Close" : "Add"}
+            textcolor="#808080"
+          />
+        </div>
+        <div className="flex mt-[70px]">
+          <Boards />
 
-        <div className="flex">{isAddVisible ? <Useraddtravel /> : ""}</div>
+          <div className="flex absolute">
+            {isAddVisible ? <Useraddtravel /> : ""}
+          </div>
+        </div>
       </div>
     </>
   );
