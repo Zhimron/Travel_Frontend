@@ -55,11 +55,11 @@ const Traveldetails = ({ item , archive }) => {
       <h1 className="font-[font2]">
         <span className="font-semibold">Created At:</span> {item.createdAt}
       </h1>
-     { archive ?   "": <span className="text-right" onClick={handleClick}>
+     { archive ?   "" : <span className="text-right" onClick={handleClick}>
         DELETE
       </span>}
       <span className="text-right" onClick={handleClickArchive}>
-        Archive
+       {archive ?  "Unarchive": "Archive"}
       </span>
     </div>
   );

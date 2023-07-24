@@ -21,7 +21,7 @@ const Boards = () => {
 
   return (
     <>
-      <div>
+      <div className="w-full">
         <div className="flex px-8 py-3 ">
           <h1 className="font-[font2] text-[40px] flex">
             Your Travel Experience
