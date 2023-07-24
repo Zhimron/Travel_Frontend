@@ -1,6 +1,6 @@
 import { useTravelcontext } from "../../hooks/UseTravelcontext";
 
-const Traveldetails = ({ item }) => {
+const Traveldetails = ({ item , archive }) => {
   const { dispatch } = useTravelcontext();
 
   const handleClickArchive = async () => {
@@ -8,7 +8,7 @@ const Traveldetails = ({ item }) => {
       "http://localhost:4000/api/travel/" + item._id,
       {
         method: "PATCH",
-        body: JSON.stringify({ archive: "Not Active" }),
+        body: JSON.stringify({ archive: archive ? "Active": "Not Active"  }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -55,9 +55,9 @@ const Traveldetails = ({ item }) => {
       <h1 className="font-[font2]">
         <span className="font-semibold">Created At:</span> {item.createdAt}
       </h1>
-      <span className="text-right" onClick={handleClick}>
+     { archive ?   "": <span className="text-right" onClick={handleClick}>
         DELETE
-      </span>
+      </span>}
       <span className="text-right" onClick={handleClickArchive}>
         Archive
       </span>

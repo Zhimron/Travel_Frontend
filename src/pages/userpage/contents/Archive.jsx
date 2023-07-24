@@ -4,6 +4,7 @@ import Traveldetails from "../components/Traveldetails";
 
 function Archive() {
   const { travel, dispatch } = useTravelcontext();
+  const archive = true;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,11 +21,15 @@ function Archive() {
   }, []);
   return (
     <>
-      <div className="flex bg-red-200 mt-[70px]">Archive</div>
+      <div className="flex  mt-[70px] p-3">
+        <h1 className="font-[font2] text-[40px] flex">
+           Archive Travel Experience
+        </h1>
+      </div>
       <div>
         {" "}
         {travel &&
-          travel.map((item) => <Traveldetails key={item._id} item={item} />)}
+          travel.map((item) => <Traveldetails key={item._id} item={item} archive={archive}/>)}
       </div>
     </>
   );
