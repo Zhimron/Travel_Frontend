@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTravelcontext } from "../../hooks/UseTravelcontext";
 import Traveldetails from "../components/Traveldetails";
+import Archivedetails from "../components/Archivedetails";
 
 function Archive() {
   const { travel, dispatch } = useTravelcontext();
@@ -19,6 +20,7 @@ function Archive() {
     };
     fetchData();
   }, []);
+
   return (
     <>
       <div className="flex  mt-[70px] p-3">

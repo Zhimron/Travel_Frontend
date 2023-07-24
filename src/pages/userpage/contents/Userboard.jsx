@@ -21,17 +21,15 @@ const Boards = () => {
 
   return (
     <>
-      <div className="flex ">
-        <div className="ml-[50px] w-[53rem]">
+      <div>
+        <div className="flex px-8 py-3 ">
           <h1 className="font-[font2] text-[40px] flex">
             Your Travel Experience
           </h1>
-          <div className="grid gap-5 grid-row overflow-hidden">
-            {travel &&
-              travel.map((item) => (
-                <Traveldetails key={item._id} item={item} />
-              ))}
-          </div>
+        </div>
+        <div className="grid gap-5 grid-row overflow-hidden">
+          {travel &&
+            travel.map((item) => <Traveldetails key={item._id} item={item} />)}
         </div>
       </div>
     </>
