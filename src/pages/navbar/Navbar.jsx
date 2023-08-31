@@ -8,11 +8,11 @@ const Navigation = () => {
   return (
     <>
       <div className="fixed flex justify-center w-full h-[80px] p-4 top-0 left-0  text-[#41644A] ">
-        <div className="flex justify-between w-[61.5rem]">
+        <div className="flex justify-between w-[61.5rem] ">
           <div>
             <h1 className=" font-[Font2] text-[35px] font-bold">QUEST</h1>
           </div>
-          <div className="flex gap-7  py-3">
+          <div className="flex gap-5 md:gap-7 py-3 ">
             {Navlinks.map((link) => (
               <motion.div
                 key={link.id}

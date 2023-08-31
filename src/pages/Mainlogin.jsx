@@ -21,22 +21,22 @@ const Loginreg = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center">
-        <div className="bg-[#9DC08B] w-[25rem] h-[35rem] p-14 flex justify-center flex-col items-center">
-          <h1 className="font-extrabold text-[3em] font-[font2] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]">
+      <div className="flex justify-center items-center mt-[9rem]">
+        <div className="bg-[#9DC08B] hidden md:block md:w-[25rem] md:h-[35rem] p-14  justify-center flex-col items-center ">
+          <h1 className="font-extrabold  text-[3em] font-[font2] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]">
             Travel More
           </h1>
-          <h1 className="font-bold text-lg mt-1 ">
+          <h1 className="font-bold md:text-lg mt-1 ">
             Hi! Let's track the destinations you've been to.
           </h1>
 
-          <div className="w-[20rem] mt-4">
+          <div className="w-[20rem] md:mt-4">
             <Lottie animationData={traveller} />
           </div>
         </div>
-        <div className="bg-white w-[30rem] h-[35rem] flex flex-col border ">
+        <div className="bg-white sm:w-[30rem] sm:h-[35rem] w-[30rem] h-[35rem] flex flex-col border ">
           {isLoading ? (
-            <div className="flex justify-center items-center h-full">
+            <div className="flex justify-center items-center md:h-full">
               <Lottie animationData={loading} />
             </div>
           ) : (

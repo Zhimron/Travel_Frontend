@@ -7,11 +7,11 @@ const Usernav = ({ handleLinkClick }) => {
   return (
     <>
       <div className=" flex justify-center w-full h-[80px] p-4  text-[#41644A] ">
-        <div className="flex justify-between w-full px-16">
+        <div className="flex justify-between w-full md:px-16">
           <div>
-            <h1 className=" font-[Font2] text-[35px] font-bold ml-10">QUEST</h1>
+            <h1 className="font-[Font2] text-[35px] font-bold ml-10">QUEST</h1>
           </div>
-          <div className="flex gap-7 py-3">
+          <div className="flex gap-5 md:gap-7 py-3">
             {Usernavlink.map((link, index) => (
               <motion.div
                 className="h-[30px] w-[100px] rounded-full overflow-hidden hover:bg-slate-950 hover:bg-opacity-10"

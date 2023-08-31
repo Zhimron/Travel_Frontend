@@ -16,9 +16,9 @@ const Dashboard = () => {
         />
       </div>
 
-      <div className="z-0 mt-10 w-screen flex flex-col items-center">
+      <div className="z-0 mt-[19rem] w-screen flex flex-col items-center md:mt-[11rem] sm:mt-[15em] ">
         <motion.h1
-          className=" font-semibold font-[font2] text-[15rem] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70]"
+          className=" font-semibold font-[font2]  text-[7rem] lg:text-[15rem] text-transparent bg-clip-text bg-gradient-to-r from-[#609966] to-[#1F8A70] sm:text-[10rem]"
           initial={{ opacity: 0 }}
           whileInView={{ y: [200, 0], opacity: 1 }}
           transition={{
